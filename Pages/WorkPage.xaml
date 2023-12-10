@@ -1,0 +1,86 @@
+﻿<Page x:Class="module_21_exercise_2_WPF.Pages.WorkPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:module_21_exercise_2_WPF.Pages"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="WorkPage">
+
+
+
+    <Grid Margin="50,0,50,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="text_path" Margin="5,10,10,5" Grid.Row="0" TextWrapping="Wrap"/>
+        <TextBlock Margin="5" Grid.Row="1" TextWrapping="Wrap" Text="Рабочий стол" FontSize="18" FontWeight="Bold"/>
+        
+        <Rectangle HorizontalAlignment="Stretch" Fill="Black" Height="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="5,0,5,-30"/>
+
+        <TextBlock Name="tb_all_requests" Margin="5,0,5,0" Grid.Row="2" TextWrapping="Wrap" FontSize="14"/>
+
+        <StackPanel Height="auto" Orientation="Horizontal" Margin="5" Grid.Row="3">
+            <Button Background="#0d6efd" Foreground="White" FontSize="14" Width="80" Margin="0,0,10,0" Height="Auto" Content="Сегодня" Name="button_requests_today"/>
+            <Button Background="#0d6efd" Foreground="White" FontSize="14" Width="80" Margin="0,0,10,0" Height="Auto" Content="Вчера" Name="button_requests_yesterday"/>
+            <Button Background="#0d6efd" Foreground="White" FontSize="14" Width="80" Margin="0,0,10,0" Height="Auto" Content="Неделя" Name="button_requests_week"/>
+            <Button Background="#0d6efd" Foreground="White" FontSize="14" Width="80" Margin="0,0,10,0" Height="Auto" Content="Месяц" Name="button_requests_month"/>
+            <Button Background="#0d6efd" Foreground="White" FontSize="14" Width="80" Margin="0,0,10,0" Height="Auto" Content="Период" Name="button_requests_period"/>
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center" Margin="10,0,10,0" Text="с"/>
+            <DatePicker Name="period_date_from" SelectedDate="{x:Static sys:DateTime.Now}"/>
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center" Margin="10,0,10,0" Text="по"/>
+            <DatePicker Name="period_date_to" SelectedDate="{x:Static sys:DateTime.Now}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="5,0,5,0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Name="tb_selected_period" FontSize="12"/>
+                <TextBlock Name="tb_requests_in_category" FontSize="12"/>
+                <TextBlock Name="tb_requests_percent" FontSize="12"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="50,0,0,0">
+                <ComboBox Height="auto" Width="150" x:Name="cb_request_status">
+                    <TextBlock Text="получена"/>
+                    <TextBlock Text="в работе"/>
+                    <TextBlock Text="выполнена"/>
+                    <TextBlock Text="отклонена"/>
+                    <TextBlock Text="отменена"/>
+                </ComboBox>
+                <Button Name="button_change_status" Background="Yellow"
+                        Height="auto" Padding="10,0,10,0" Margin="0,5,0,0" Content="Изменить статус заявки"/>
+            </StackPanel>
+        </StackPanel>
+
+        
+
+
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" MaxHeight="200" Width="Auto" Name="lv_requests" VerticalAlignment="Top"  Grid.Row="5" Margin="5">
+            <ListView.View >
+
+                <GridView>
+                    <GridViewColumn Width="30" DisplayMemberBinding="{Binding Id}" Header="№"/>
+                    <GridViewColumn Width="200" DisplayMemberBinding="{Binding RequesterName}" Header="Имя"/>
+                    <GridViewColumn Width="180" DisplayMemberBinding="{Binding RequestEmail}" Header="E-mail"/>
+                    <GridViewColumn Width="200" DisplayMemberBinding="{Binding RequestText}" Header="Текст сообщения"/>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding RequestTime,StringFormat='dd.MM.yyyy HH:mm:ss'}" Header="Время заявки"/>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding RequestStatus}" Header="Статус"/>
+                </GridView>
+
+            </ListView.View>
+            <ListView.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                </Style>
+            </ListView.Resources>
+        </ListView>
+    </Grid>
+</Page>

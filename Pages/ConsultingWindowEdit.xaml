@@ -1,0 +1,89 @@
+﻿<Page x:Class="module_21_exercise_2_WPF.Pages.ConsultingWindowEdit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:module_21_exercise_2_WPF.Pages"
+      mc:Ignorable="d" 
+      
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="ConsultingWindowEdit"
+      UseLayoutRounding="True">
+
+    <Grid Margin="0,-180,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Background="DarkCyan"/>
+        <Border Grid.Row="1" Grid.Column="0" Background="DarkCyan"/>
+        <Border Grid.Row="2" Grid.Column="0" Background="DarkCyan"/>
+        <Border Grid.Row="3" Grid.Column="0" Background="DarkCyan"/>
+        <Border Grid.Row="0" Grid.Column="1" Background="DarkCyan"/>
+        <Border Grid.Row="1" Grid.Column="1" Background="DarkCyan"/>
+        <Border Grid.Row="2" Grid.Column="1" Background="DarkCyan"/>
+        <Border Grid.Row="3" Grid.Column="1" Background="DarkCyan"/>
+
+        <Image Stretch="Uniform" Width="250" Height="Auto" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4"
+            Source="https://localhost:44380/api/application/getpixbyname/main_page_1.png"/>
+
+        <StackPanel Margin="0" Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Name="tb_mainpage" Text="Главная"      Height="Auto" Width="90" Margin="0,0,10,0" FontSize="14" VerticalContentAlignment="Center" />
+            <TextBox Name="tb_services" Text="Услуги"       Height="Auto" Width="90" Margin="0,0,10,0" FontSize="14" VerticalContentAlignment="Center"/>
+            <TextBox Name="tb_projects" Text="Проекты"      Height="Auto" Width="90" Margin="0,0,10,0" FontSize="14" VerticalContentAlignment="Center"/>
+            <TextBox Name="tb_blog"     Text="Блог"         Height="Auto" Width="90" Margin="0,0,10,0" FontSize="14" VerticalContentAlignment="Center"/>
+            <TextBox Name="tb_contacts" Text="Контакты"     Height="Auto" Width="90" Margin="0,0,10,0" FontSize="14" VerticalContentAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Name="button_request" Text="ОСТАВИТЬ ЗАЯВКУ" Width="170" Height="40" FontWeight="Bold" FontSize="16" VerticalContentAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="3" Margin="10,0,10,0" Orientation="Vertical" HorizontalAlignment="Right" Width="500">
+            <TextBox Name="tb_tagline_1" Text="слоган 1" FontSize="18" VerticalContentAlignment="Center" FontStyle="Italic"></TextBox>
+            <TextBox Name="tb_tagline_2" Text="слоган 1" FontSize="18" VerticalContentAlignment="Center" FontStyle="Italic"></TextBox>
+            <TextBox Name="tb_tagline_3" Text="слоган 1" FontSize="18" VerticalContentAlignment="Center" FontStyle="Italic"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
+            <Image Margin="0" Height="120"  Stretch="UniformToFill" Source="https://localhost:44380/api/application/getpixbyname/main_page_2.png" Panel.ZIndex="-1"/>
+            <TextBox Name="tb_company" Margin="50,-100,50,0" TextWrapping="Wrap"
+                     FontSize="26" FontWeight="Bold" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Margin="50,130,50,20">
+            <TextBox Name="tb_info" Margin="0,5,0,0" Grid.Row="2" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"
+                                Text="Вы можете оставить заявку или задать вопрос в форме ниже"/>
+
+            <TextBlock Margin="0,5,0,0" Grid.Row="3" Text="Имя"/>
+            <TextBox IsEnabled="false" Height="25"/>
+
+            <TextBlock Margin="0,5,0,0" Grid.Row="5" Text="E-mail"/>
+            <TextBox IsEnabled="false" Height="25"/>
+
+            <TextBlock Margin="0,5,0,0" Grid.Row="7" Text="Текст сообщения"/>
+            <TextBox IsEnabled="false" Height="60"/>
+
+            <StackPanel Grid.Row="9" Orientation="Vertical">
+                <Button Margin="5" Name="button_save_texts" HorizontalAlignment="Left" 
+                    Width="Auto" Height="30" Background="#FF1861AC" Content="Сохранить"
+                    Foreground="White" FontSize="16"/>
+
+                <Button Margin="5" Name="button_back" HorizontalAlignment="Left"
+                    Width="Auto" Height="30" Background="#FF1861AC" Content="Назад"
+                    Foreground="White" FontSize="16"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,117 @@
+﻿<Window x:Class="module_21_exercise_2_WPF.ConsultingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:module_21_exercise_2_WPF"
+        mc:Ignorable="d"
+        Title="Консалтинг" Height="700" Width="1100"
+        MinHeight="700" MinWidth="1000"
+        UseLayoutRounding="True">
+
+    <Grid>        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Background="DarkCyan"/>
+        <Border Grid.Row="1" Grid.Column="0" Background="DarkCyan"/>
+        <Border Grid.Row="2" Grid.Column="0" Background="DarkCyan"/>
+        <Border Grid.Row="3" Grid.Column="0" Background="DarkCyan"/>
+        <Border Grid.Row="0" Grid.Column="1" Background="DarkCyan"/>
+        <Border Grid.Row="1" Grid.Column="1" Background="DarkCyan"/>
+        <Border Grid.Row="2" Grid.Column="1" Background="DarkCyan"/>
+        <Border Grid.Row="3" Grid.Column="1" Background="DarkCyan"/>
+
+        <Image Stretch="Uniform" Width="250" Height="Auto" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4"
+               Source="https://localhost:44380/api/application/getpixbyname/main_page_1.png"/>
+        
+        <!--панель выбора входа или регистрации-->
+        <StackPanel Name="sp_login_or_reg" Grid.Column="2" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="button_choice_login" Content="Вход"        Height="25" Width="60" Margin="0,0,10,0" Foreground="White" Background="#FF1861AC"/>
+            <Button Name="button_choice_reg"   Content="Регистрация" Height="25" Width="85" Margin="0,0,10,0" Foreground="White" Background="#FF1861AC"/>
+        </StackPanel>
+
+        <!--панель входа-->
+        <StackPanel Name="sp_login" Grid.Column="2" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Text="Логин: " Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <TextBox Name="tb_enter_login" Width="85" Margin="0,0,10,0" Height="25" VerticalContentAlignment="Center"/>
+            <TextBlock Text="Пароль: " Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <TextBox Name="tb_enter_password" Width="85" Margin="0,0,10,0" Height="25" VerticalContentAlignment="Center"/>
+            <Button Name="button_login" Content="Войти" Height="25" Width="60" Margin="0,0,10,0" Foreground="White" Background="#FF1861AC"/>
+            <Button Name="button_back_1"  Content="Назад" Height="25" Width="60" Margin="0,0,10,0" Foreground="White" Background="#FF1861AC"/>
+        </StackPanel>
+
+        <!--панель регистрации-->
+        <StackPanel Name="sp_reg" Grid.Column="2" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Text="Логин: " Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <TextBox Name="tb_reg_login" Width="85" Margin="0,0,10,0" Height="25" VerticalContentAlignment="Center"/>
+            <TextBlock Text="Пароль: " Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <TextBox Name="tb_reg_password" Width="85" Margin="0,0,10,0" Height="25" VerticalContentAlignment="Center"/>
+            <Button Name="button_reg" Content="Регистрация" Height="25" Width="85" Margin="0,0,10,0" Foreground="White" Background="#FF1861AC"/>
+            <Button Name="button_back_2" Content="Назад" Height="25" Width="60" Margin="0,0,10,0" Foreground="White" Background="#FF1861AC"/>
+        </StackPanel>
+
+        <!--панель успешного входа-->
+        <StackPanel Name="sp_login_ok" Grid.Column="2" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">            
+            <TextBlock Name="tb_current_user" VerticalAlignment="Center" FontSize="16"/>
+            <Button Name="button_exit" Content="Выход" Height="25" Width="60" Margin="0,0,10,0" Foreground="White" Background="#FF1861AC"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="button_workpage" Content="Рабочий стол" MinWidth="90px"  Height="30" Margin="0,0,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Name="button_mainpage" Content="Главная" MinWidth="70px" Height="30" Margin="0,0,10,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Name="button_services" Content="Услуги" MinWidth="70px" Height="30" Margin="0,0,10,0" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" FontSize="16" FontWeight="Bold">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Name="button_projects" Content="Проекты" MinWidth="70px"  Height="30" Margin="0,0,10,0" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" FontSize="16" FontWeight="Bold">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Name="button_blog" Content="Блог" MinWidth="70px"  Height="30" Margin="0,0,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Name="button_contacts" Content="Контакты" MinWidth="70px"  Height="30" Margin="0,0,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>            
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="button_request" Content="ОСТАВИТЬ ЗАЯВКУ" Width="170" Height="40" FontWeight="Bold" FontSize="16" Background="#FFDC3545" Foreground="White" />
+            <Button Margin="10,0,0,0" Name="button_edit_texts" HorizontalAlignment="Left" Grid.Row="9"
+                    Width="Auto" Height="30" Background="Red" Content="Редактировать тексты страницы"
+                    Foreground="White" FontSize="16"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Name="tb_tagline" Text="слоган" FontSize="30" Padding="0,0,20,0" VerticalAlignment="Center" FontStyle="Italic"></TextBlock>
+        </StackPanel>
+        <Frame Name="MainFrame" Margin="0" NavigationUIVisibility="Hidden"
+               Grid.Row="4" Grid.ColumnSpan="2"/>
+        <TextBlock VerticalAlignment="Center" Margin="50,0,0,0" Text="Специально для SkillProfi, 2023 год"
+                   Grid.Row="5" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
